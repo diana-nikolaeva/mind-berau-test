@@ -31,14 +31,17 @@ function openPhoneMenu() {
 .container-main-menu {
   display: flex;
   color: #fff;
-  min-height: 60px;
+  height: 60px;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column-reverse;
-
   @media screen and (min-width: 1024px) {
     height: 45px;
+    width: 80%;
+    align-content: end;
+    background: #614d49;
+    clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 nav {
@@ -50,24 +53,35 @@ nav {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top:60px;
+    top: 60px;
     right: 0;
     left: 0;
     background: #614d49;
     padding: 10px 0;
     @media screen and (min-width: 1024px) {
       flex-direction: row;
-      position: relative;
+      position: static;
+      height: 100%;
+      justify-content: space-around;
+      width: 50%;
     }
   }
   .top-menu_hidden {
     display: none;
+    @media screen and (min-width: 1024px) {
+      display: flex;
+    }
   }
 
   .top-menu__item {
     list-style: none;
     margin-right: 10px;
     text-align: center;
+    text-transform: uppercase;
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 .container {
@@ -80,6 +94,10 @@ nav {
   align-content: center;
   flex-wrap: wrap;
   clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
+  @media screen and (min-width: 1024px) {
+    clip-path: none;
+    width: 33%;
+  }
   .search {
     background-image: url('icons/searchIcon.png');
     background-repeat: no-repeat;
@@ -87,6 +105,9 @@ nav {
     margin-left: 20px;
     height: 19px;
     margin-top: 5px;
+    @media screen and (min-width: 1024px){
+      margin-top: 12px;
+    }
   }
   .btn-order {
     background-color: #311311;
@@ -97,14 +118,24 @@ nav {
     margin-left: 20px;
     text-transform: uppercase;
     box-sizing: content-box;
+    @media screen and (min-width:1024px){
+      padding: 12px 20px;
+      width: auto;
+
+    }
   }
   .btn-open-phone-menu {
     margin-left: 20px;
+    @media screen and (min-width:1024px){
+      display: none;
+    }
   }
   .toggle-language {
     margin-left: 20px;
-    &.toggle-language_hidden {
-      display: none;
+    display: none;
+    @media screen and (min-width:1024px){
+      display: block;
+      margin-top: 8px;
     }
   }
   .contacts {
