@@ -5,13 +5,24 @@ const isHidden = ref(true)
 function openPhoneMenu() {
   isHidden.value = !isHidden.value
 }
+
+const isHiddenSubMenu = ref(true)
+function openSubMenu() {
+  isHiddenSubMenu.value = !isHiddenSubMenu.value
+}
 </script>
 <template>
   <header>
     <nav>
       <div class="container-main-menu">
         <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
-          <li class="top-menu__item">Товары</li>
+          <li class="top-menu__item" @click="openSubMenu">Товары
+            <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
+            <li class="top-menu__submenu__item">Флотомашины и чаны</li>
+            <li class="top-menu__submenu__item">автоматизация</li>
+            <li class="top-menu__submenu__item">sn</li>
+          </ul>
+          </li>
           <li class="top-menu__item">Услуги</li>
           <li class="top-menu__item">Компания</li>
         </ul>
@@ -24,6 +35,13 @@ function openPhoneMenu() {
         </div>
       </div>
     </nav>
+    <nav>
+      <ul class="sub-menu-decktop">
+        <li class="sub-menu-decktop__item">Флотомашины и чаны</li>
+        <li class="sub-menu-decktop__item">автоматизация</li>
+        <li class="sub-menu-decktop__item">sn</li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -32,14 +50,14 @@ function openPhoneMenu() {
   display: flex;
   color: #fff;
   height: 60px;
-  align-content: center;
+  align-content: space-between;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column-reverse;
   @media screen and (min-width: 1024px) {
     height: 45px;
     width: 80%;
-    align-content: end;
+    padding-left: 50px;
     background: #614d49;
     clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -63,7 +81,14 @@ nav {
       position: static;
       height: 100%;
       justify-content: space-around;
-      width: 50%;
+    }
+    .top-menu__submenu {
+      list-style: none;
+      background: #e8e1e0;
+      color: #7c6e6b;
+      @media screen and (min-width: 1024px) {
+      display: none
+    }
     }
   }
   .top-menu_hidden {
@@ -75,12 +100,12 @@ nav {
 
   .top-menu__item {
     list-style: none;
-    margin-right: 10px;
     text-align: center;
     text-transform: uppercase;
     @media screen and (min-width: 1024px) {
       display: flex;
       align-items: center;
+      margin-right: 4em;
     }
   }
 }
@@ -96,7 +121,6 @@ nav {
   clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
   @media screen and (min-width: 1024px) {
     clip-path: none;
-    width: 33%;
   }
   .search {
     background-image: url('icons/searchIcon.png');
@@ -105,7 +129,7 @@ nav {
     margin-left: 20px;
     height: 19px;
     margin-top: 5px;
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
       margin-top: 12px;
     }
   }
@@ -118,22 +142,21 @@ nav {
     margin-left: 20px;
     text-transform: uppercase;
     box-sizing: content-box;
-    @media screen and (min-width:1024px){
+    @media screen and (min-width: 1024px) {
       padding: 12px 20px;
       width: auto;
-
     }
   }
   .btn-open-phone-menu {
     margin-left: 20px;
-    @media screen and (min-width:1024px){
+    @media screen and (min-width: 1024px) {
       display: none;
     }
   }
   .toggle-language {
     margin-left: 20px;
     display: none;
-    @media screen and (min-width:1024px){
+    @media screen and (min-width: 1024px) {
       display: block;
       margin-top: 8px;
     }
@@ -144,5 +167,22 @@ nav {
       display: none;
     }
   }
+}
+.sub-menu_hidden{
+  display: none;
+}
+.sub-menu-decktop{
+  display: none;
+  @media screen and (min-width: 1024px){
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    background: #e8e1e0;
+    color: #7c6e6b;
+    width: 80%;
+    clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
+    height: 45px;
+  }
+
 }
 </style>
