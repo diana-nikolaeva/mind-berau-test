@@ -16,15 +16,16 @@ function openSubMenu() {
     <nav>
       <div class="container-main-menu">
         <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
-          <li class="top-menu__item" @click="openSubMenu">Товары
+          <li class="top-menu__item top-menu__item_active" @click="openSubMenu">
+            <span>Товары</span>
             <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
-            <li class="top-menu__submenu__item">Флотомашины и чаны</li>
-            <li class="top-menu__submenu__item">автоматизация</li>
-            <li class="top-menu__submenu__item">sn</li>
-          </ul>
+              <li class="top-menu__submenu__item">Флотомашины и чаны</li>
+              <li class="top-menu__submenu__item">автоматизация</li>
+              <li class="top-menu__submenu__item">sn</li>
+            </ul>
           </li>
-          <li class="top-menu__item">Услуги</li>
-          <li class="top-menu__item">Компания</li>
+          <li class="top-menu__item"><span>Услуги</span></li>
+          <li class="top-menu__item"><span>Компания</span></li>
         </ul>
         <div class="container container_phone">
           <div class="btn-order">Оставить заявку</div>
@@ -37,9 +38,11 @@ function openSubMenu() {
     </nav>
     <nav>
       <ul class="sub-menu-decktop">
-        <li class="sub-menu-decktop__item">Флотомашины и чаны</li>
-        <li class="sub-menu-decktop__item">автоматизация</li>
-        <li class="sub-menu-decktop__item">sn</li>
+        <li class="sub-menu-decktop__item"><span>Флотомашины и чаны</span></li>
+        <li class="sub-menu-decktop__item sub-menu-decktop__item_active">
+          <span>автоматизация</span>
+        </li>
+        <li class="sub-menu-decktop__item"><span>sn</span></li>
       </ul>
     </nav>
   </header>
@@ -57,58 +60,83 @@ function openSubMenu() {
   @media screen and (min-width: 1024px) {
     height: 45px;
     width: 80%;
-    padding-left: 50px;
     background: #614d49;
-    clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
 
-  .top-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    left: 0;
-    background: #614d49;
-    padding: 10px 0;
-    @media screen and (min-width: 1024px) {
-      flex-direction: row;
-      position: static;
-      height: 100%;
-      justify-content: space-around;
-    }
-    .top-menu__submenu {
-      list-style: none;
-      background: #e8e1e0;
-      color: #7c6e6b;
-      @media screen and (min-width: 1024px) {
-      display: none
-    }
-    }
-  }
-  .top-menu_hidden {
-    display: none;
-    @media screen and (min-width: 1024px) {
-      display: flex;
-    }
-  }
-
-  .top-menu__item {
-    list-style: none;
-    text-align: center;
-    text-transform: uppercase;
-    @media screen and (min-width: 1024px) {
-      display: flex;
-      align-items: center;
-      margin-right: 4em;
-    }
+.top-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  left: 0;
+  background: #614d49;
+  padding: 10px 0;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    position: static;
+    height: 100%;
+    justify-content: space-around;
+    padding: 0;
+    background: transparent;
+    margin-left: -10px;
   }
 }
+
+.top-menu__submenu {
+  list-style: none;
+  background: #e8e1e0;
+  color: #7c6e6b;
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.top-menu_hidden {
+  display: none;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.top-menu__item,
+.sub-menu-decktop__item {
+  list-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    transform: skew(-23deg); /* Equal to skewX(10deg) */
+    background: #614d49;
+
+    padding: 0 15px;
+    padding-right: 4em;
+  }
+  span {
+    transform: skew(23deg);
+  }
+}
+.top-menu__item {
+  @media screen and (min-width: 1024px) {
+    padding-left: 30px;
+  }
+}
+
+.top-menu__item {
+  &:hover,
+  &_active {
+    background: #e8e1e0;
+    color: #7c6e6b;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -168,21 +196,34 @@ nav {
     }
   }
 }
-.sub-menu_hidden{
+.sub-menu_hidden {
   display: none;
 }
-.sub-menu-decktop{
+.sub-menu-decktop {
   display: none;
-  @media screen and (min-width: 1024px){
+  width: calc(80% + 40px);
+  @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row;
     list-style: none;
     background: #e8e1e0;
     color: #7c6e6b;
-    width: 80%;
     clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
     height: 45px;
   }
 
+  .sub-menu-decktop__item {
+    @media screen and (min-width: 1024px) {
+      background: #e8e1e0;
+      margin: 10px 0;
+      margin-left: 10px;
+      font-size: smaller;
+    }
+    &:hover,
+    &_active {
+      background: red;
+      color: #fff;
+    }
+  }
 }
 </style>
