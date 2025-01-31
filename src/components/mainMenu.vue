@@ -29,7 +29,7 @@ function openSubMenu() {
         </ul>
         <div class="container container_phone">
           <div class="btn-order">Оставить заявку</div>
-          <div class="contacts contacts_hidden">Контакты</div>
+          <div class="contacts">Контакты</div>
           <a href="#" class="search"></a>
           <div class="toggle-language toggle-language_hidden">EN</div>
           <div @click="openPhoneMenu" class="btn-open-phone-menu">&#9776;</div>
@@ -49,7 +49,17 @@ function openSubMenu() {
 </template>
 
 <style scooped lang="scss">
+
+nav{
+  @media screen and (min-width: 1024px){
+    margin: 0 20px;
+  }
+
+
+}
+
 .container-main-menu {
+
   display: flex;
   color: #fff;
   height: 60px;
@@ -61,6 +71,7 @@ function openSubMenu() {
     height: 45px;
     width: 80%;
     background: #614d49;
+    margin-top: 20px;
   }
 }
 nav {
@@ -173,6 +184,7 @@ nav {
     @media screen and (min-width: 1024px) {
       padding: 12px 20px;
       width: auto;
+      
     }
   }
   .btn-open-phone-menu {
@@ -186,13 +198,16 @@ nav {
     display: none;
     @media screen and (min-width: 1024px) {
       display: block;
-      margin-top: 8px;
+      display: flex;
+      align-items: center;
     }
   }
   .contacts {
     margin-left: 20px;
-    &.contacts_hidden {
-      display: none;
+    display: none;
+    @media screen and (min-width: 1024px){
+      display: flex;
+      align-items: center;
     }
   }
 }
