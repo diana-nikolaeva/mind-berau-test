@@ -17,32 +17,32 @@ function openSubMenu() {
       <div class="container-main-menu">
         <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
           <li class="top-menu__item top-menu__item_active" @click="openSubMenu">
-            <span>Товары</span>
+            <a href="#">Товары</a>
             <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
               <li class="top-menu__submenu__item">Флотомашины и чаны</li>
               <li class="top-menu__submenu__item">автоматизация</li>
               <li class="top-menu__submenu__item">sn</li>
             </ul>
           </li>
-          <li class="top-menu__item"><span>Услуги</span></li>
-          <li class="top-menu__item"><span>Компания</span></li>
+          <li class="top-menu__item"><a href="#">Услуги</a></li>
+          <li class="top-menu__item"><a href="#">Компания</a></li>
         </ul>
         <div class="container container_phone">
-          <div class="btn-order">Оставить заявку</div>
-          <div class="contacts">Контакты</div>
+          <div class="btn-order"><a href="#">Оставить заявку</a></div>
+          <div class="contacts"><a href="#">Контакты</a></div>
           <a href="#" class="search"></a>
-          <div class="toggle-language toggle-language_hidden">EN</div>
-          <div @click="openPhoneMenu" class="btn-open-phone-menu">&#9776;</div>
+          <div class="toggle-language toggle-language_hidden"><a href="#">EN</a></div>
+          <div @click="openPhoneMenu" class="btn-open-phone-menu"><a href="#">&#9776;</a></div>
         </div>
       </div>
     </nav>
     <nav>
       <ul class="sub-menu-decktop">
-        <li class="sub-menu-decktop__item"><span>Флотомашины и чаны</span></li>
+        <li class="sub-menu-decktop__item"><a href="#">Флотомашины и чаны</a></li>
         <li class="sub-menu-decktop__item sub-menu-decktop__item_active">
-          <span>автоматизация</span>
+          <a href="#">автоматизация</a>
         </li>
-        <li class="sub-menu-decktop__item"><span>sn</span></li>
+        <li class="sub-menu-decktop__item"><a href="#">sn</a></li>
       </ul>
     </nav>
   </header>
@@ -121,6 +121,7 @@ nav {
   list-style: none;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
   @media screen and (min-width: 1024px) {
     display: flex;
     align-items: center;
@@ -130,8 +131,11 @@ nav {
     padding: 0 15px;
     padding-right: 4em;
   }
-  span {
+  a {
     transform: skew(23deg);
+    text-decoration: none;
+    color: #fff;
+
   }
 }
 .top-menu__item {
@@ -144,8 +148,11 @@ nav {
   &:hover,
   &_active {
     background: #e8e1e0;
+    a{
     color: #7c6e6b;
   }
+  }
+
 }
 
 .container {
@@ -168,6 +175,7 @@ nav {
     margin-left: 20px;
     height: 19px;
     margin-top: 5px;
+    cursor: pointer;
     @media screen and (min-width: 1024px) {
       margin-top: 12px;
     }
@@ -184,7 +192,10 @@ nav {
     @media screen and (min-width: 1024px) {
       padding: 12px 20px;
       width: auto;
-      
+    }
+    a{
+      color:#fff;
+      text-decoration: none;
     }
   }
   .btn-open-phone-menu {
@@ -197,9 +208,13 @@ nav {
     margin-left: 20px;
     display: none;
     @media screen and (min-width: 1024px) {
-      display: block;
       display: flex;
       align-items: center;
+      cursor: pointer;
+      a{
+      color:#fff;
+      text-decoration: none;
+    }
     }
   }
   .contacts {
@@ -208,6 +223,10 @@ nav {
     @media screen and (min-width: 1024px){
       display: flex;
       align-items: center;
+    }
+    a{
+      color:#fff;
+      text-decoration: none;
     }
   }
 }
@@ -222,9 +241,11 @@ nav {
     flex-direction: row;
     list-style: none;
     background: #e8e1e0;
-    color: #7c6e6b;
     clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
     height: 45px;
+    a{
+      color: #7c6e6b;
+    }
   }
 
   .sub-menu-decktop__item {
@@ -237,7 +258,9 @@ nav {
     &:hover,
     &_active {
       background: red;
-      color: #fff;
+      a{
+        color: #fff;
+      }
     }
   }
 }
