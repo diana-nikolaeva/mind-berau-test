@@ -32,7 +32,7 @@ function openSubMenu() {
           <div class="container container_phone">
             <div class="btn-order"><a href="#">Оставить заявку</a></div>
             <div class="contacts"><a href="#">Контакты</a></div>
-            <a href="#" class="search"></a>
+            <router-link to="/search" class="search"></router-link>
             <div class="toggle-language toggle-language_hidden"><a href="#">EN</a></div>
             <div @click="openPhoneMenu" class="btn-open-phone-menu"><a href="#">&#9776;</a></div>
           </div>

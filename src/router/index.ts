@@ -1,13 +1,20 @@
+import HomePageContent from '@/components/homePageContent.vue'
+import SearchPageContent from '@/components/searchPageContent.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: HomeView,
-    // },
+    {
+      path: '/',
+      name: 'home',
+      component: HomePageContent,
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchPageContent,
+    },
     // {
     //   path: '/about',
     //   name: 'about',

@@ -1,32 +1,12 @@
 <script setup lang="ts">
-import MainMenu from './components/mainMenu.vue'
-import videoSection from './components/videoSection.vue';
-import contentBlock from './components/contentBlock.vue';
-import tallBanner from './components/tallBanner.vue';
-import smallBanner from './components/smallBanner.vue';
-import footerBlock from './components/footerBlock.vue';
-import wrapperModal from './components/wrapperModal.vue';
-import { ref } from 'vue';
 
-const modalIsVisible = ref(false);
+// import homePageContent from './components/homePageContent.vue';
 
-function showModal(){
-  modalIsVisible.value = true;
-}
-
-function closeModal(){
-  modalIsVisible.value = false;
-}
 </script>
 
 <template>
-  <MainMenu />
-  <videoSection @ask-modal="showModal" />
-  <contentBlock />
-  <tallBanner />
-  <smallBanner />
-  <footerBlock />
-  <wrapperModal :modalIsVisible="modalIsVisible" @close-modal-wrapper="closeModal"/>
+  <!-- <homePageContent/> -->
+  <router-view></router-view>
 </template>
 
 <style>
@@ -36,15 +16,12 @@ function closeModal(){
     font-style: normal;
     font-weight: normal;
     src: url('./assets/fonts/PFDinTextCondPro-Regular.woff');
-    /* src: local('PFDinTextCondPro-Regular'), url('./assets/fonts/PFDinTextCondPro-Regular.woff') format('woff'); */
     }
 
 @font-face {
   font-family: "PF Din Text Comp Pro";
   src: url("./assets/fonts/pfdintextcomppro-regular.ttf");
 }
-
-
 
 body{
   font-family: "PF Din Text Comp Pro";
