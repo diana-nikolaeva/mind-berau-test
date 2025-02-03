@@ -13,53 +13,52 @@ function openSubMenu() {
 </script>
 <template>
   <header>
-    <nav>
-      <div class="container-main-menu">
-        <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
-          <li class="top-menu__item top-menu__item_active" @click="openSubMenu">
-            <a href="#">Товары</a>
-            <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
-              <li class="top-menu__submenu__item">Флотомашины и чаны</li>
-              <li class="top-menu__submenu__item">автоматизация</li>
-              <li class="top-menu__submenu__item">sn</li>
-            </ul>
-          </li>
-          <li class="top-menu__item"><a href="#">Услуги</a></li>
-          <li class="top-menu__item"><a href="#">Компания</a></li>
-        </ul>
-        <div class="container container_phone">
-          <div class="btn-order"><a href="#">Оставить заявку</a></div>
-          <div class="contacts"><a href="#">Контакты</a></div>
-          <a href="#" class="search"></a>
-          <div class="toggle-language toggle-language_hidden"><a href="#">EN</a></div>
-          <div @click="openPhoneMenu" class="btn-open-phone-menu"><a href="#">&#9776;</a></div>
+    <div class="wrapper-top-menu">
+      <nav>
+        <div class="container-main-menu">
+          <div class="background"></div>
+          <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
+            <li class="top-menu__item top-menu__item_active" @click="openSubMenu">
+              <a href="#">Товары</a>
+              <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
+                <li class="top-menu__submenu__item">Флотомашины и чаны</li>
+                <li class="top-menu__submenu__item">автоматизация</li>
+                <li class="top-menu__submenu__item">sn</li>
+              </ul>
+            </li>
+            <li class="top-menu__item"><a href="#">Услуги</a></li>
+            <li class="top-menu__item"><a href="#">Компания</a></li>
+          </ul>
+          <div class="container container_phone">
+            <div class="btn-order"><a href="#">Оставить заявку</a></div>
+            <div class="contacts"><a href="#">Контакты</a></div>
+            <a href="#" class="search"></a>
+            <div class="toggle-language toggle-language_hidden"><a href="#">EN</a></div>
+            <div @click="openPhoneMenu" class="btn-open-phone-menu"><a href="#">&#9776;</a></div>
+          </div>
         </div>
-      </div>
-    </nav>
-    <nav>
-      <ul class="sub-menu-decktop">
-        <li class="sub-menu-decktop__item"><a href="#">Флотомашины и чаны</a></li>
-        <li class="sub-menu-decktop__item sub-menu-decktop__item_active">
-          <a href="#">автоматизация</a>
-        </li>
-        <li class="sub-menu-decktop__item"><a href="#">sn</a></li>
-      </ul>
-    </nav>
+      </nav>
+      <nav>
+        <ul class="sub-menu-decktop">
+          <li class="sub-menu-decktop__item"><a href="#">Флотомашины и чаны</a></li>
+          <li class="sub-menu-decktop__item sub-menu-decktop__item_active">
+            <a href="#">автоматизация</a>
+          </li>
+          <li class="sub-menu-decktop__item"><a href="#">sn</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
-<style scooped lang="scss">
-
-nav{
-  @media screen and (min-width: 1024px){
-    margin: 0 20px;
+<style scoped lang="scss">
+.wrapper-top-menu {
+  @media screen and (min-width: 1024px) {
+    padding: 0 20px;
   }
-
-
 }
 
 .container-main-menu {
-
   display: flex;
   color: #fff;
   height: 60px;
@@ -69,9 +68,10 @@ nav{
   flex-direction: column-reverse;
   @media screen and (min-width: 1024px) {
     height: 45px;
-    width: 80%;
-    background: #614d49;
+    width: 85%;
     margin-top: 20px;
+    position: relative;
+    // clip-path: polygon(10px 0, 100% 0, 100% 100%, -10px 100%, 0 52%);
   }
 }
 nav {
@@ -96,7 +96,6 @@ nav {
     justify-content: space-around;
     padding: 0;
     background: transparent;
-    margin-left: -10px;
   }
 }
 
@@ -135,7 +134,6 @@ nav {
     transform: skew(23deg);
     text-decoration: none;
     color: #fff;
-
   }
 }
 .top-menu__item {
@@ -148,11 +146,10 @@ nav {
   &:hover,
   &_active {
     background: #e8e1e0;
-    a{
-    color: #7c6e6b;
+    a {
+      color: #7c6e6b;
+    }
   }
-  }
-
 }
 
 .container {
@@ -182,7 +179,6 @@ nav {
   }
   .btn-order {
     background-color: #311311;
-    width: 106px;
     font-size: 12px;
     padding: 8px;
     border-radius: 5px;
@@ -193,15 +189,20 @@ nav {
       padding: 12px 20px;
       width: auto;
     }
-    a{
-      color:#fff;
+    a {
+      color: #fff;
       text-decoration: none;
     }
   }
   .btn-open-phone-menu {
     margin-left: 20px;
+    cursor: pointer;
     @media screen and (min-width: 1024px) {
       display: none;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
     }
   }
   .toggle-language {
@@ -211,21 +212,21 @@ nav {
       display: flex;
       align-items: center;
       cursor: pointer;
-      a{
-      color:#fff;
-      text-decoration: none;
-    }
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
   .contacts {
     margin-left: 20px;
     display: none;
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
       display: flex;
       align-items: center;
     }
-    a{
-      color:#fff;
+    a {
+      color: #fff;
       text-decoration: none;
     }
   }
@@ -235,7 +236,7 @@ nav {
 }
 .sub-menu-decktop {
   display: none;
-  width: calc(80% + 40px);
+  width: calc(85% + 30px);
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row;
@@ -243,7 +244,7 @@ nav {
     background: #e8e1e0;
     clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
     height: 45px;
-    a{
+    a {
       color: #7c6e6b;
     }
   }
@@ -257,11 +258,24 @@ nav {
     }
     &:hover,
     &_active {
-      background: red;
-      a{
+      background: #b21f24ed;
+      a {
         color: #fff;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .background {
+    position: absolute;
+    background-attachment: red;
+    background: #614d49;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    right: 0;
+    z-index: -1;
   }
 }
 </style>

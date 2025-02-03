@@ -1,0 +1,76 @@
+<script setup lang="ts">
+
+  import contentSection from './contentSection.vue';
+
+</script>
+
+<template>
+  <div class="container">
+    <h1>
+     <span class="red">Lorem ipsum,</span>
+     <span>Lorem ipsum Lorem ipsum</span>
+    </h1>
+    <div class="desc">
+      Lorem Ipsum компании разработано с учётом анализа передовых технологий, использованием лучших
+      решений и их качественной модернизации под потребности конкретного заказчика. Успешная
+      реализация проектов на ведущих предприятиях горно-обогатительной промышленности базируется на
+      многолетнем опыте и высоких компетенциях наших сотрудников.
+    </div>
+    <contentSection :rotate="false" />
+    <contentSection :rotate="true"/>
+  </div>
+</template>
+
+<style scoped>
+.container {
+  background-color: #f2f2f2;
+  padding: 50px 20px;
+  margin-bottom: 50px;
+}
+h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .red{
+    color: #b21f24ed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    &::after {
+    content: '';
+    display: block;
+    flex-grow: 1;
+    height: 2px;
+    background: #AA927A;
+    margin-left: 50px;
+    flex-grow: 1;
+    @media screen and (min-width:1024){
+      margin-left: 100px;
+    }
+    }
+    @media screen and (min-width:1024) {
+      font-size: 47px;
+    }
+    @media screen and (min-width:1700) {
+      font-size: 66px;
+    }
+  }
+
+
+}
+h2{
+  font-size: 66px;
+
+}
+.desc {
+  color: #aa927a;
+  font-size: px;
+  margin-bottom: 50px;
+  font-size: 16px;
+  @media screen and (min-width:1700) {
+    font-size: 28px;
+  }
+}
+</style>
