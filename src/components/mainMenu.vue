@@ -301,6 +301,7 @@ nav {
       background: #b21f24ed;
       a {
         color: #fff;
+        padding: 10px;
       }
     }
   }

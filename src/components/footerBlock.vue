@@ -142,9 +142,10 @@ ul{
     list-style: none;
     cursor: pointer;
     &:hover{
-      background-color: #B21F24;
       a{
         color:#fff;
+        background-color: #B21F24;
+        padding: 0  10px;
       }
     }
   }
