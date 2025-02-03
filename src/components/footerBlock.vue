@@ -151,7 +151,9 @@ ul{
   }
   a{
     text-decoration: none;
-    color:#AA927A
+    color:#AA927A;
+    padding-right: 20px;
+    transition: padding 0.2s;
   }
 }
 .column-footer{
