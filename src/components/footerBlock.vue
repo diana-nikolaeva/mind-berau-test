@@ -84,6 +84,9 @@ footer{
   color:#AA927A;
   margin-left: 20px;
   margin-top: 30px;
+  @media screen  and (min-width:1700px){
+   display: none;
+  }
 }
 .footer-container{
   margin-bottom: 80px;
@@ -92,10 +95,9 @@ footer{
     justify-content: space-around;
     margin-bottom: 105px;
     padding: 30px;
-  }
-  @media screen  and (min-width:1700px){
     flex-grow: 1;
   }
+
 }
 h4{
   font-size: 18px;
@@ -158,6 +160,9 @@ ul{
     &:last-child{
       margin-right: 0;
     }
+  }
+  @media screen  and (min-width:1700px){
+    flex-grow: 0;
   }
 }
 .footer-list{

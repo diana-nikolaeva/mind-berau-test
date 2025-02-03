@@ -23,8 +23,10 @@
   position: relative;
   margin-bottom: 80px;
   @media screen and (min-width: 1024px){
-    margin: 0 30px 50px 30px;
-    margin-bottom: 100px;
+    margin: 0 30px 100px 30px;
+  }
+  @media screen and (min-width: 1700px){
+    margin: 0 36px 130px 36px;
   }
 }
 .banner {
@@ -46,6 +48,7 @@ h2{
   font-family: 'PF Din Text Cond Pro';
   @media screen and (min-width: 1024px) {
     padding: 40px 0 40px 40px;
+    font-size: 47px;
   }
   @media screen and (min-width: 1700px) {
     font-size: 80px;
@@ -56,6 +59,7 @@ h2{
   color: #fff;
   font-size: 20px;
   margin-left: 12px;
+  color:#7C6E6B;
   @media screen and (min-width: 1024px) {
     font-size: 16px;
     margin-left: 40px;

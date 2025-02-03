@@ -30,6 +30,10 @@
     padding: 40px 0 40px 30px;
     margin-bottom: 100px;
   }
+  @media screen and (min-width:1700px){
+    padding: 101px 0 92px 36px;
+    margin-bottom: 130px;
+  }
 }
 h1 {
   font-size: 40px;
@@ -57,7 +61,6 @@ h1 {
     }
 
   @media screen and (min-width:1024px){
-    margin-left: 100px;
     font-size: 47px;
     margin-left: 0;
     margin-bottom: 20px;

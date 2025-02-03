@@ -28,6 +28,7 @@
   }
   @media screen and (min-width:1700px){
     height: 860px;
+    margin: 0 36px 130px 36px;
   }
   .btn-contact{
     position: absolute;

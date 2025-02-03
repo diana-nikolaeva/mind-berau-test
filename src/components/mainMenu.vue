@@ -56,6 +56,9 @@ function openSubMenu() {
   @media screen and (min-width: 1024px) {
     padding: 0 30px;
   }
+  @media screen and (min-width: 1024px){
+    padding: 0 36px;
+  }
 }
 
 .container-main-menu {
@@ -135,6 +138,7 @@ nav {
     transform: skew(23deg);
     text-decoration: none;
     color: #fff;
+    font-size: 14px;
   }
 }
 .top-menu__item {

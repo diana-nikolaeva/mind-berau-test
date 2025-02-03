@@ -59,6 +59,9 @@ h3{
   font-weight: 500;
   margin-bottom: 16px;
   font-family: 'PF Din Text Cond Pro';
+  @media screen and (min-width: 1700px) {
+    font-size: 28px;
+  }
 }
 .descr-img {
   flex-basis: 40%;

@@ -18,6 +18,9 @@
 <style scoped>
   .small-banner{
     margin-bottom: 80px;
+    @media screen and (min-width: 1700px){
+      margin-bottom: 100px;
+    }
   }
 
   .small-banner-container{

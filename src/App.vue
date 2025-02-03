@@ -57,12 +57,17 @@ a{
     height: 50px;
     width: 220px;
   }
+
     a{
       text-decoration: none;
       color:#fff;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.48px;
+      @media screen and (min-width: 1700px){
+        font-size: 16px;
+        etter-spacing: 0.637px;
+      }
     }
     span{
       margin-left: 14px;
@@ -74,7 +79,6 @@ a{
   width: fit-content;
   margin-left: 20px;
   padding: 10px 40px;
-  width: 195px;
   box-sizing: border-box;
   font-family:"PF Din Text Cond Pro";
   @media screen and (min-width: 1024px){
@@ -87,9 +91,13 @@ a{
     font-size: 12px;
     text-transform: uppercase;
     display: block;
+    @media screen and (min-width: 1700px){
+      font-size: 14px;
+      letter-spacing: 0.48px;
+    }
   }
   span{
-  margin-left: 20px;
+  margin-left: 10px;
   display: inline-block;
 }
 }
