@@ -35,14 +35,12 @@ const props = defineProps<{
 <style scoped>
 .content-section {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
+  flex-direction: column-reverse;
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row;
   }
   &.left-img {
-    flex-direction: column;
     @media screen and (min-width: 1024px) {
       flex-direction: row-reverse;
     }
@@ -51,11 +49,15 @@ const props = defineProps<{
 h3{
   color:#311311;
   text-transform: uppercase;
-  font-size: 28px;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  margin-bottom: 16px;
 }
 .descr-img {
   flex-basis: 40%;
-  padding: 0 20px 20px 20px;
+  color:#7C6E6B;
+  margin-bottom: 20px;
 }
 .img-container {
   flex-basis: 60%;

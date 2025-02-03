@@ -70,7 +70,7 @@ import footerAdressBlock from './footerAdressBlock.vue';
 
 <style scoped>
 footer{
-  border-top: 4px solid #AA927A;
+  border-top: 3px solid #EBE8E5;
 }
 
 .footer-wrapper{
@@ -83,9 +83,10 @@ footer{
 .copyright{
   color:#AA927A;
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .footer-container{
+  margin-bottom: 80px;
   @media screen and (min-width:1024px){
     display: flex;
     justify-content: space-around;
@@ -99,24 +100,27 @@ h4{
   font-size: 18px;
   text-transform: uppercase;
   color:#311311;
-  margin: 30px 20px 20px 20px;
+  margin: 28px 11px 20px 13px;
   border-bottom: 3px solid #AA92;
-  padding-bottom: 15px;
-  font-weight: bold;
+  padding-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.72px;
 }
 h5{
   font-size: 14px;
   text-transform: uppercase;
   color:#311311;
-  margin: 20px;
-  font-weight: bold;
+  margin: 20px 0 13px 13px;
+  font-weight: 500;
+  letter-spacing: 0.56px
 }
 h6{
   font-size: 16px;
   color:#311311;
-  margin-left: 38px;
+  margin-left: 27px;
 }
 ul{
+  padding-left: 27px;
   li{
     list-style: none;
     cursor: pointer;
@@ -142,7 +146,7 @@ ul{
   color:#B21F24;
 }
 .made-block{
-  padding: 80px 0 100px 0;
+  padding: 40px 0 60px 0;
   text-align: center;
   font-size: 16px;
   @media screen and (min-width:1024px) {

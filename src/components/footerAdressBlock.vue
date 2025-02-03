@@ -43,22 +43,22 @@
   }
 }
 .adress-block{
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   display: flex;
   @media screen  and (min-width:1024px){
     flex-shrink: 1;
   }
 }
 .adress{
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .adress__icon{
   margin-top: 6px;
 }
 .contacts{
   margin-bottom: 30px;
+  display: flex;
   @media screen  and (min-width:1024px){
-    display: flex;
     flex-direction: column;
     flex-shrink: 0;
     margin-bottom: 0;
@@ -67,6 +67,8 @@
   a{
     color:#311311;
     display: block;
+    flex-grow: 1;
+
   }
   @media screen  and (min-width:1700px){
     margin-left: 46px;
@@ -80,6 +82,7 @@
 .btn-rotate{
   width: 196px;
   padding: 10px 20px;
+  margin: 0;
   span{
     margin-left: 30px;
   }

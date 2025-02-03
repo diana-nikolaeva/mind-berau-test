@@ -5,7 +5,7 @@ import contentBlock from './components/contentBlock.vue';
 import tallBanner from './components/tallBanner.vue';
 import smallBanner from './components/smallBanner.vue';
 import footerBlock from './components/footerBlock.vue';
-import modalWindow from './components/modalWindow.vue';
+// import modalWindow from './components/modalWindow.vue';
 
 </script>
 
@@ -16,7 +16,7 @@ import modalWindow from './components/modalWindow.vue';
   <tallBanner />
   <smallBanner />
   <footerBlock />
-  <modalWindow />
+  <!-- <modalWindow /> -->
 </template>
 
 <style>
@@ -32,42 +32,48 @@ a{
   text-decoration: none;
 }
 .btn{
-  background-color: #B21F24;
-    clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
-    cursor: pointer;
+  background: url('./components/icons/bcgr-red.svg') no-repeat;
+  background-size: cover;
+  width: 183px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
     a{
       text-decoration: none;
-        color:#fff;
-        font-size: 12px;
-        text-transform: uppercase;
+      color:#fff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.48px;
     }
     span{
-      margin-left: 50px;
+      margin-left: 14px;
     }
 }
 .btn-rotate{
-      background-color: #B21F24;
-      cursor: pointer;
-      transform: skew(-23deg);
-      width: fit-content;
-      margin-left: 20px;
-      padding: 10px 40px;
-      @media screen and (min-width: 1024px){
-        margin-left: 60px;
-      }
-
-      a{
-      text-decoration: none;
-        color:#fff;
-        font-size: 12px;
-        text-transform: uppercase;
-        transform: skew(23deg);
-        display: block;
-      }
-      span{
-      margin-left: 50px;
-      transform: skew(23deg);
-      display: inline-block;
-    }
+  background: url('./components/icons/bcgr-red-rotate.svg') no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: fit-content;
+  margin-left: 20px;
+  padding: 10px 40px;
+  width: 195px;
+  box-sizing: border-box;
+  @media screen and (min-width: 1024px){
+    margin-left: 60px;
   }
+
+  a{
+  text-decoration: none;
+    color:#fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+  }
+  span{
+  margin-left: 30px;
+  display: inline-block;
+}
+}
 </style>

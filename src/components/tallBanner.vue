@@ -21,7 +21,7 @@
 <style scoped>
 .tall-banner {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   @media screen and (min-width: 1024px){
     margin: 0 20px 50px 20px;
   }
@@ -41,7 +41,7 @@
 h2{
   font-size: 40px;
   color: #fff;
-  padding: 60px 0 40px 10px;
+  padding: 60px 0 23px 12px;
   @media screen and (min-width: 1024px) {
     padding: 40px 0 40px 40px;
   }
@@ -53,7 +53,7 @@ h2{
 .descr{
   color: #fff;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 12px;
   @media screen and (min-width: 1024px) {
     font-size: 16px;
     margin-left: 40px;

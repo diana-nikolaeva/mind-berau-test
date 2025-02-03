@@ -169,9 +169,9 @@ nav {
     background-image: url('icons/searchIcon.png');
     background-repeat: no-repeat;
     width: 17px;
-    margin-left: 20px;
+    margin-left: 28px;
     height: 19px;
-    margin-top: 5px;
+    margin-top: 13px;
     cursor: pointer;
     @media screen and (min-width: 1024px) {
       margin-top: 12px;
@@ -180,11 +180,13 @@ nav {
   .btn-order {
     background-color: #311311;
     font-size: 12px;
-    padding: 8px;
+    padding: 13px 8px 11px 8px;
     border-radius: 5px;
     margin-left: 20px;
     text-transform: uppercase;
     box-sizing: content-box;
+    font-weight: 400;
+    letter-spacing: 0.48px;
     @media screen and (min-width: 1024px) {
       padding: 12px 20px;
       width: auto;
@@ -195,8 +197,10 @@ nav {
     }
   }
   .btn-open-phone-menu {
-    margin-left: 20px;
+    margin-left: 28px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
     @media screen and (min-width: 1024px) {
       display: none;
     }

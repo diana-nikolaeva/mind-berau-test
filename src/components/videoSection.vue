@@ -21,6 +21,7 @@
   overflow: hidden;
   height: 640px;
   position: relative;
+  margin-bottom: 60px;
   @media screen and (min-width:1024px){
     margin: 0 20px 50px 20px;
     height: 510px;

@@ -17,11 +17,9 @@
 
 <style scoped>
   .small-banner{
-    margin-bottom: 50px;
-    @media screen and (min-width: 1024px){
-      margin-bottom: 80px;
-    }
+    margin-bottom: 80px;
   }
+  
   .small-banner-container{
     height: 500px;
     background: linear-gradient(to bottom right, #BFAD9B, #F2F1F0 );
@@ -32,8 +30,9 @@
     h2{
       color:#fff;
       text-transform: uppercase;
-      padding: 30px 10px 30px 10px;
+      padding: 40px 12px;
       font-size: 32px;
+      font-weight: 500;
       @media screen and (min-width: 1024px){
         font-size: 47px;
         padding: 60px 0 40px 60px;

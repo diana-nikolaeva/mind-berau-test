@@ -24,8 +24,8 @@
 <style scoped>
 .container {
   background-color: #f2f2f2;
-  padding: 50px 20px;
-  margin-bottom: 50px;
+  padding: 40px 12px 32px 12px;
+  margin-bottom: 80px;
 }
 h1 {
   font-size: 40px;
@@ -33,12 +33,9 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  .red{
-    color: #b21f24ed;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    &::after {
+  padding-right: 75px;
+  margin-bottom: 60px;
+  &::after {
     content: '';
     display: block;
     flex-grow: 1;
@@ -46,6 +43,14 @@ h1 {
     background: #AA927A;
     margin-left: 50px;
     flex-grow: 1;
+  }
+  .red{
+    color: #b21f24ed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
     @media screen and (min-width:1024){
       margin-left: 100px;
     }
@@ -56,10 +61,7 @@ h1 {
     @media screen and (min-width:1700) {
       font-size: 66px;
     }
-  }
 
-
-}
 h2{
   font-size: 66px;
 
@@ -67,7 +69,7 @@ h2{
 .desc {
   color: #aa927a;
   font-size: px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-size: 16px;
   @media screen and (min-width:1700) {
     font-size: 28px;
