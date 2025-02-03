@@ -6,10 +6,38 @@ function openPhoneMenu() {
   isHidden.value = !isHidden.value
 }
 
-const isHiddenSubMenu = ref(true)
-function openSubMenu() {
-  isHiddenSubMenu.value = !isHiddenSubMenu.value
+interface MenuItem {
+  title: string,
+  hasSubmenu: boolean
 }
+
+
+const menu: MenuItem[] = [
+  {
+    title: 'Товары',
+    hasSubmenu: true
+  },
+  {
+    title: 'Услуги',
+    hasSubmenu: false
+  },
+  {
+    title: 'Компания',
+    hasSubmenu: false
+  }
+
+]
+
+const currentMenuItem = ref(menu[0]);
+const isHiddenSubMenu = ref(true)
+
+function onMenuItemClick(item: MenuItem) {
+  currentMenuItem.value = item;
+  if (item.hasSubmenu) {
+    isHiddenSubMenu.value = !isHiddenSubMenu.value;
+  }
+}
+
 </script>
 <template>
   <header>
@@ -18,16 +46,18 @@ function openSubMenu() {
         <div class="container-main-menu">
           <div class="background"></div>
           <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
-            <li class="top-menu__item top-menu__item_active" @click="openSubMenu">
-              <a href="#">Товары</a>
-              <ul class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }">
+            <li class="top-menu__item"
+              v-for="item of menu"
+              :key="item.title"
+              @click="onMenuItemClick(item)"
+              :class="{'top-menu__item_active': currentMenuItem.title === item.title}"
+            ><a href="#">{{item.title}}</a>
+            <ul v-if="item.hasSubmenu" class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }" @click.stop>
                 <li class="top-menu__submenu__item">Флотомашины и чаны</li>
                 <li class="top-menu__submenu__item">автоматизация</li>
                 <li class="top-menu__submenu__item">sn</li>
               </ul>
-            </li>
-            <li class="top-menu__item"><a href="#">Услуги</a></li>
-            <li class="top-menu__item"><a href="#">Компания</a></li>
+          </li>
           </ul>
           <div class="container container_phone">
             <div class="btn-order"><a href="#">Оставить заявку</a></div>
@@ -93,6 +123,7 @@ nav {
   left: 0;
   background: #614d49;
   padding: 10px 0;
+  z-index: 1;
   @media screen and (min-width: 1024px) {
     flex-direction: row;
     position: static;
