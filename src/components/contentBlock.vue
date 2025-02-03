@@ -41,10 +41,14 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-right: 75px;
   margin-bottom: 60px;
   font-family: 'PF Din Text Cond Pro';
-  &::after {
+    .red{
+      color: #b21f24ed;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      &::after {
     content: '';
     display: block;
     flex-grow: 1;
@@ -53,21 +57,18 @@ h1 {
     margin-left: 50px;
     flex-grow: 1;
     }
-    .red{
-      color: #b21f24ed;
-      display: flex;
-      width: 100%;
-      align-items: center;
     }
 
   @media screen and (min-width:1024px){
     font-size: 47px;
     margin-left: 0;
     margin-bottom: 20px;
+    padding-right: 30px;
   }
 
   @media screen and (min-width:1700px) {
     font-size: 66px;
+    padding-right: 36px;
   }
 }
 

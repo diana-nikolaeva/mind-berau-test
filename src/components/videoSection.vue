@@ -32,8 +32,8 @@
   }
   .btn-contact{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -1px;
+    right: -1px;
 
     @media screen and (min-width:1024px){
       border-bottom: 30px solid #fff;

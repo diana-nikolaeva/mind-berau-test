@@ -56,7 +56,7 @@ function openSubMenu() {
   @media screen and (min-width: 1024px) {
     padding: 0 30px;
   }
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1700px){
     padding: 0 36px;
   }
 }

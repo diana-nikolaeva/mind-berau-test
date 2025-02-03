@@ -39,6 +39,7 @@ const props = defineProps<{
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row;
+    padding-right: 30px;
   }
   &.left-img {
     margin-top: 10px;
@@ -47,6 +48,7 @@ const props = defineProps<{
       margin-top: 40px;
       .img-container{
         margin-left: 20px;
+        margin-right: 0;
       }
     }
   }
