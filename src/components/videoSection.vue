@@ -23,7 +23,7 @@
   position: relative;
   margin-bottom: 60px;
   @media screen and (min-width:1024px){
-    margin: 0 20px 50px 20px;
+    margin: 0 30px 80px 30px;
     height: 510px;
   }
   @media screen and (min-width:1700px){
@@ -33,10 +33,10 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 20px 40px 20px 40px;
 
     @media screen and (min-width:1024px){
-      border-bottom: 20px solid #fff;
+      border-bottom: 30px solid #fff;
+      border-left: 8px solid transparent;
     }
   }
  }

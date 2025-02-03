@@ -19,13 +19,15 @@
   .small-banner{
     margin-bottom: 80px;
   }
-  
+
   .small-banner-container{
     height: 500px;
-    background: linear-gradient(to bottom right, #BFAD9B, #F2F1F0 );
+    background: url('./icons/sdf.svg') no-repeat;
+    background-size: cover;
     border-radius: 5px;
     @media screen and (min-width: 1024px){
       height: 383px;
+      margin: 0 30px;
     }
     h2{
       color:#fff;
@@ -33,9 +35,10 @@
       padding: 40px 12px;
       font-size: 32px;
       font-weight: 500;
+      font-family: 'PF Din Text Cond Pro';
       @media screen and (min-width: 1024px){
         font-size: 47px;
-        padding: 60px 0 40px 60px;
+        padding: 60px 0 37px 60px;
         width: 75%;
       }
       @media screen and (min-width: 1700px){

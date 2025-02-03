@@ -41,8 +41,13 @@ const props = defineProps<{
     flex-direction: row;
   }
   &.left-img {
+    margin-top: 10px;
     @media screen and (min-width: 1024px) {
       flex-direction: row-reverse;
+      margin-top: 40px;
+      .img-container{
+        margin-left: 20px;
+      }
     }
   }
 }
@@ -53,6 +58,7 @@ h3{
   letter-spacing: 0.8px;
   font-weight: 500;
   margin-bottom: 16px;
+  font-family: 'PF Din Text Cond Pro';
 }
 .descr-img {
   flex-basis: 40%;
@@ -67,12 +73,14 @@ h3{
     width: 100%;
     display: block;
   }
+  @media screen and (min-width:1024px){
+    margin-right: 20px;
+  }
 }
 .btn {
   position: absolute;
   bottom: 30px;
   right: 0;
-  padding: 10px 30px;
   a{
     text-transform: uppercase;
 

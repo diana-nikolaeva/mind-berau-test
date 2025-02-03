@@ -26,6 +26,10 @@
   background-color: #f2f2f2;
   padding: 40px 12px 32px 12px;
   margin-bottom: 80px;
+  @media screen and (min-width:1024px){
+    padding: 40px 0 40px 30px;
+    margin-bottom: 100px;
+  }
 }
 h1 {
   font-size: 40px;
@@ -35,6 +39,7 @@ h1 {
   width: 100%;
   padding-right: 75px;
   margin-bottom: 60px;
+  font-family: 'PF Din Text Cond Pro';
   &::after {
     content: '';
     display: block;
@@ -43,24 +48,25 @@ h1 {
     background: #AA927A;
     margin-left: 50px;
     flex-grow: 1;
-  }
-  .red{
-    color: #b21f24ed;
-    display: flex;
-    width: 100%;
-    align-items: center;
+    }
+    .red{
+      color: #b21f24ed;
+      display: flex;
+      width: 100%;
+      align-items: center;
+    }
+
+  @media screen and (min-width:1024px){
+    margin-left: 100px;
+    font-size: 47px;
+    margin-left: 0;
+    margin-bottom: 20px;
   }
 
-    @media screen and (min-width:1024){
-      margin-left: 100px;
-    }
-    }
-    @media screen and (min-width:1024) {
-      font-size: 47px;
-    }
-    @media screen and (min-width:1700) {
-      font-size: 66px;
-    }
+  @media screen and (min-width:1700px) {
+    font-size: 66px;
+  }
+}
 
 h2{
   font-size: 66px;
@@ -68,10 +74,13 @@ h2{
 }
 .desc {
   color: #aa927a;
-  font-size: px;
   margin-bottom: 40px;
   font-size: 16px;
-  @media screen and (min-width:1700) {
+  @media screen and (min-width:1024px){
+    margin-right: 324px;
+    margin-bottom: 37px;
+  }
+  @media screen and (min-width:1700px) {
     font-size: 28px;
   }
 }

@@ -20,10 +20,21 @@ import footerBlock from './components/footerBlock.vue';
 </template>
 
 <style>
+
+@font-face {
+    font-family: 'PF Din Text Cond Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/PFDinTextCondPro-Regular.woff');
+    /* src: local('PFDinTextCondPro-Regular'), url('./assets/fonts/PFDinTextCondPro-Regular.woff') format('woff'); */
+    }
+
 @font-face {
   font-family: "PF Din Text Comp Pro";
   src: url("./assets/fonts/pfdintextcomppro-regular.ttf");
 }
+
+
 
 body{
   font-family: "PF Din Text Comp Pro";
@@ -40,6 +51,12 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: content-box;
+  font-family:"PF Din Text Cond Pro";
+  @media screen and (min-width: 1024px){
+    height: 50px;
+    width: 220px;
+  }
     a{
       text-decoration: none;
       color:#fff;
@@ -53,13 +70,13 @@ a{
 }
 .btn-rotate{
   background: url('./components/icons/bcgr-red-rotate.svg') no-repeat;
-  background-size: cover;
   cursor: pointer;
   width: fit-content;
   margin-left: 20px;
   padding: 10px 40px;
   width: 195px;
   box-sizing: border-box;
+  font-family:"PF Din Text Cond Pro";
   @media screen and (min-width: 1024px){
     margin-left: 60px;
   }
@@ -72,7 +89,7 @@ a{
     display: block;
   }
   span{
-  margin-left: 30px;
+  margin-left: 20px;
   display: inline-block;
 }
 }

@@ -54,7 +54,7 @@ function openSubMenu() {
 <style scoped lang="scss">
 .wrapper-top-menu {
   @media screen and (min-width: 1024px) {
-    padding: 0 20px;
+    padding: 0 30px;
   }
 }
 
@@ -69,7 +69,7 @@ function openSubMenu() {
   @media screen and (min-width: 1024px) {
     height: 45px;
     width: 85%;
-    margin-top: 20px;
+    margin-top: 30px;
     position: relative;
     // clip-path: polygon(10px 0, 100% 0, 100% 100%, -10px 100%, 0 52%);
   }
@@ -78,6 +78,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-family:"PF Din Text Cond Pro";
 }
 
 .top-menu {

@@ -90,7 +90,8 @@ footer{
   @media screen and (min-width:1024px){
     display: flex;
     justify-content: space-around;
-    margin-bottom: 50px;
+    margin-bottom: 105px;
+    padding: 30px;
   }
   @media screen  and (min-width:1700px){
     flex-grow: 1;
@@ -101,10 +102,14 @@ h4{
   text-transform: uppercase;
   color:#311311;
   margin: 28px 11px 20px 13px;
-  border-bottom: 3px solid #AA92;
+  border-bottom: 3px solid #EBE8E5;
   padding-bottom: 20px;
   font-weight: 500;
   letter-spacing: 0.72px;
+  font-family: 'PF Din Text Cond Pro';
+  @media screen and (min-width:1024px){
+    margin: 28px 11px 20px 0;
+  }
 }
 h5{
   font-size: 14px;
@@ -112,15 +117,25 @@ h5{
   color:#311311;
   margin: 20px 0 13px 13px;
   font-weight: 500;
-  letter-spacing: 0.56px
+  letter-spacing: 0.56px;
+  font-family: 'PF Din Text Cond Pro';
+  @media screen and (min-width:1024px){
+    margin: 20px 0 13px 0;
+  }
 }
 h6{
   font-size: 16px;
   color:#311311;
   margin-left: 27px;
+  @media screen and (min-width:1024px){
+    margin-left: 0;
+  }
 }
 ul{
   padding-left: 27px;
+  @media screen and (min-width:1024px){
+    padding-left: 0;
+  }
   li{
     list-style: none;
     cursor: pointer;
@@ -138,9 +153,18 @@ ul{
 }
 .column-footer{
   flex-grow: 1;
+  @media screen and (min-width:1024px){
+    margin-right: 60px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
 }
 .footer-list{
   padding-left: 20px;
+  @media screen and (min-width:1024px){
+    padding-left: 0;
+  }
 }
 .red-text{
   color:#B21F24;
@@ -150,7 +174,7 @@ ul{
   text-align: center;
   font-size: 16px;
   @media screen and (min-width:1024px) {
-    padding: 150px 0 20px 0;
+    padding: 200px 0 14px 0;
   }
 }
 </style>

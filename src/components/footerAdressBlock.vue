@@ -33,8 +33,10 @@
   font-size: 20px;
   @media screen  and (min-width:1024px){
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    margin: 30px;
+    padding: 29px;
   }
   @media screen  and (min-width:1700px){
     display: block;
