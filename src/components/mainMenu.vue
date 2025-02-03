@@ -27,6 +27,22 @@ const menu: MenuItem[] = [
   }
 
 ]
+interface SubMenuItem {
+  title: string,
+}
+const subMenu: SubMenuItem[]=[
+  {
+    title:'Флотомашины и чаны'
+  },
+  {
+    title:'автоматизация'
+  },
+  {
+    title:'sn'
+  }
+
+]
+
 
 const currentMenuItem = ref(menu[0]);
 const isHiddenSubMenu = ref(true)
@@ -36,6 +52,10 @@ function onMenuItemClick(item: MenuItem) {
   if (item.hasSubmenu) {
     isHiddenSubMenu.value = !isHiddenSubMenu.value;
   }
+}
+const currentSubMenu = ref(subMenu[0]);
+function onSubMenuClick(item:SubMenuItem){
+  currentSubMenu.value = item;
 }
 
 </script>
@@ -53,9 +73,12 @@ function onMenuItemClick(item: MenuItem) {
               :class="{'top-menu__item_active': currentMenuItem.title === item.title}"
             ><a href="#">{{item.title}}</a>
             <ul v-if="item.hasSubmenu" class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }" @click.stop>
-                <li class="top-menu__submenu__item">Флотомашины и чаны</li>
-                <li class="top-menu__submenu__item">автоматизация</li>
-                <li class="top-menu__submenu__item">sn</li>
+                <li class="top-menu__submenu__item"
+                v-for="item of subMenu"
+                :key="item.title"
+                @click="onSubMenuClick(item)"
+                :class="{'sub-menu-decktop__item_active':currentSubMenu.title===item.title}"
+                >{{item.title}}</li>
               </ul>
           </li>
           </ul>
@@ -70,11 +93,12 @@ function onMenuItemClick(item: MenuItem) {
       </nav>
       <nav>
         <ul class="sub-menu-decktop">
-          <li class="sub-menu-decktop__item"><a href="#">Флотомашины и чаны</a></li>
-          <li class="sub-menu-decktop__item sub-menu-decktop__item_active">
-            <a href="#">автоматизация</a>
-          </li>
-          <li class="sub-menu-decktop__item"><a href="#">sn</a></li>
+          <li class="sub-menu-decktop__item"
+          v-for="item of subMenu"
+          :key="item.title"
+          @click="onSubMenuClick(item)"
+          :class="{'sub-menu-decktop__item_active':currentSubMenu.title===item.title}"
+          ><a href="#">{{item.title}}</a></li>
         </ul>
       </nav>
     </div>
@@ -295,13 +319,13 @@ nav {
       margin: 10px 0;
       margin-left: 10px;
       font-size: smaller;
+      padding: 10px;
     }
     &:hover,
     &_active {
       background: #b21f24ed;
       a {
         color: #fff;
-        padding: 10px;
       }
     }
   }
@@ -310,7 +334,7 @@ nav {
 @media screen and (min-width: 1024px) {
   .background {
     position: absolute;
-    background-attachment: red;
+    background-attachment: #b21f24ed;
     background: #614d49;
     top: 0;
     bottom: 0;
@@ -318,5 +342,11 @@ nav {
     right: 0;
     z-index: -1;
   }
+}
+.sub-menu-decktop__item_active{
+  background: #b21f24ed;
+  color:#fff;
+  padding-left: 0;
+  margin-left: 0;
 }
 </style>
