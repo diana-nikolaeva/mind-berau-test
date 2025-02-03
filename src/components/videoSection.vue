@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import {defineEmits } from 'vue';
 
+const emit = defineEmits(['ask-modal']);
+
+
+function onClick(){
+  emit('ask-modal');
+}
 </script>
 
 <template>
@@ -8,7 +15,7 @@
           <source src="./video/video.mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="btn-contact btn">
+        <div class="btn-contact btn" @click="onClick">
           <a href="#">Связаться с нами
             <span>></span>
           </a>

@@ -5,18 +5,28 @@ import contentBlock from './components/contentBlock.vue';
 import tallBanner from './components/tallBanner.vue';
 import smallBanner from './components/smallBanner.vue';
 import footerBlock from './components/footerBlock.vue';
-// import modalWindow from './components/modalWindow.vue';
+import wrapperModal from './components/wrapperModal.vue';
+import { ref } from 'vue';
 
+const modalIsVisible = ref(false);
+
+function showModal(){
+  modalIsVisible.value = true;
+}
+
+function closeModal(){
+  modalIsVisible.value = false;
+}
 </script>
 
 <template>
   <MainMenu />
-  <videoSection />
+  <videoSection @ask-modal="showModal" />
   <contentBlock />
   <tallBanner />
   <smallBanner />
   <footerBlock />
-  <!-- <modalWindow /> -->
+  <wrapperModal :modalIsVisible="modalIsVisible" @close-modal-wrapper="closeModal"/>
 </template>
 
 <style>

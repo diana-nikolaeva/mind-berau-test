@@ -4,6 +4,8 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, numeric, email, minLength } from '@vuelidate/validators';
 import { maxLength } from '@vuelidate/validators/dist/index.cjs';
 
+const emit = defineEmits(['close-modal']);
+
 const isSubmitted = ref(false);
 
 const formState = reactive({
@@ -50,12 +52,18 @@ const onSubmit = async () => {
   const isFormCorrect = await validate.value.$validate();
   console.log(isFormCorrect);
 }
+
+function closeModal(){
+  emit('close-modal');
+}
+
 </script>
 
 <template>
-  <div class="modal-window" @submit.prevent>
+
+    <div class="modal-window">
     <form @submit="onSubmit">
-      <div class="btn-close">
+      <div class="btn-close" @click="closeModal">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M18 6L6 18M18 18L6 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -85,25 +93,44 @@ const onSubmit = async () => {
       <button class="btn-rotate" disabled type="submit">отправить</button>
     </form>
 </div>
+
 </template>
 
 <style scoped lang="scss">
+
 .modal-window{
   position: fixed;
-  top: 0;
-  left: 100px;
+  top:50px;
+  left: 20px;
+  right: 20px;
+  width: calc(100% - 40px);
+  @media screen and (min-width:1024px) {
+    left: 50%;
+    top:50%;
+    transform: translate(-25%,-50%);
+  }
+
+
+
 }
 .btn-close{
   width: 24px;
   height: 24px;
   position: absolute;
-  right: -24px;
-  top: -24px;
+  background: #614D49;
   cursor: pointer;
+  right: 10px;
+  top: 10px;
+  @media screen and (min-width:1024px) {
+    right: -24px;
+    top: -24px;
+    background: none;
+  }
 }
 form{
 display: flex;
-width: 595px;
+width: 100%;
+max-width: 595px;
 padding: 40px;
 flex-direction: column;
 align-items: flex-start;
