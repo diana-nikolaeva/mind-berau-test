@@ -301,7 +301,7 @@ nav {
 .sub-menu-decktop {
   display: none;
   width: calc(85% + 30px);
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1700px) {
     display: flex;
     flex-direction: row;
     list-style: none;
