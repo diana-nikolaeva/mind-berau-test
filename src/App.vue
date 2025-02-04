@@ -68,6 +68,7 @@ a{
   padding: 10px 40px;
   box-sizing: border-box;
   font-family:"PF Din Text Cond Pro";
+  background-size: contain;
   @media screen and (min-width: 1024px){
     margin-left: 60px;
   }

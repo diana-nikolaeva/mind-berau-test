@@ -156,6 +156,9 @@ input{
    color: #614D49;
    font-family: "PF Din Text Comp Pro";
   }
+  &:focus-visible{
+    outline: none;
+  }
 }
 a{
   color: #614D49;
@@ -171,8 +174,10 @@ a{
   border: 0;
   color:#fff;
   margin: 0;
+  text-transform: uppercase;
   &:disabled{
-    background: grey;
+    background: url('./icons/btn-disabled-bcgr.svg') no-repeat;
+    background-size: contain;
   }
 }
 .has-error {
