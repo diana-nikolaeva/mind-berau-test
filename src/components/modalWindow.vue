@@ -1,60 +1,68 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import { useVuelidate } from '@vuelidate/core';
-import { required, numeric, email, minLength } from '@vuelidate/validators';
-import { maxLength } from '@vuelidate/validators/dist/index.cjs';
+import { Field, Form, defineRule, ErrorMessage} from 'vee-validate';
+import { size, image } from '@vee-validate/rules';
+import { ref } from 'vue';
 
 const emit = defineEmits(['close-modal']);
 
-const isSubmitted = ref(false);
-
-const formState = reactive({
-  name: '',
-  email: '',
-  tel:'',
-  description:'',
-  // file:''
-});
-
-const rules = {
-  // name: { required: helpers.withMessage('This field cannot be empty', required),  $autoDirty: true },
-  name: { required,  $autoDirty: true },
-  email: { required, email,  $autoDirty: true },
-  tel: {required, numeric, minLength: minLength(11), maxLength: maxLength(11),  $autoDirty: true },
-  description: { required,  $autoDirty: true },
-  // file:'file'
-};
-
-const validate = useVuelidate(rules, formState);
-
-
-// const filesCount = ref(0);
-
-// const filesCountCheck = () => {
-//   const a =  filesCount.value < 4;
-//   return a;
-// }
-
-// const maxSize = 5* 1024;
-// // const maxSize = 300;
-
-// const onChange = () => {
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   const inputDom  = fileInput.value as any;
-//   const count = inputDom.value.length;
-//   filesCount.value = count;
-// }
-
-
-const onSubmit = async () => {
-  isSubmitted.value = true;
-  console.log('Submitted', validate.value.tel);
-  const isFormCorrect = await validate.value.$validate();
-  console.log(isFormCorrect);
-}
-
 function closeModal(){
   emit('close-modal');
+}
+
+defineRule('fileValidation',fileValidation);
+defineRule('size',(value: unknown) => {
+  const result = size(value, {size: 5 * 1024});
+  if (result === true) {
+    return result;
+  }
+
+  return 'Файл должен быть не более 5 МБ';
+
+});
+defineRule('image',(value: unknown) => {
+  const result = image(value);
+  if (result === true) {
+    return result;
+  }
+
+  return 'Неправильный формат файлов';
+
+});
+
+const required = (value: unknown) => {
+  if (!value) {
+    return 'Поле обязательно для заполнения';
+  }
+
+  return true;
+}
+
+const fileCount = ref(0);
+function fileValidation(input: unknown) {
+  const value = input as File[];
+  fileCount.value = value?.length;
+    if (!value || value.length < 4) {
+      return true;
+    }
+    return 'много файлов';
+  }
+
+  function validateEmail(value: unknown) {
+      // if the field is empty
+      if (!value) {
+        return 'This field is required';
+      }
+      // if the field is not a valid email
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value as string)) {
+        return 'This field must be a valid email';
+      }
+      // All is good
+      return true;
+    }
+
+function onSubmit(value: unknown) {
+  console.log(value);
 }
 
 </script>
@@ -62,36 +70,31 @@ function closeModal(){
 <template>
 
     <div class="modal-window">
-    <form @submit="onSubmit">
+      <Form   @submit="onSubmit" v-slot="{errorBag, meta}">
       <div class="btn-close" @click="closeModal">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M18 6L6 18M18 18L6 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="descr-form">Успех начинается с правильных решений. Оставьте здесь свои контакты, и мы свяжемся с вами, чтобы предложить оптимальную технологию по увеличению процента извлекаемости полезного в конечный продукт на вашем предприятии.</div>
+      <Field name="name" type="text" placeholder="Имя*" :class="{ 'has-error': errorBag.name }" :rules="required"/>
+      <Field name="email" type="email" placeholder="E-Mail*" :class="{ 'has-error': errorBag.email }" :rules="validateEmail"/>
+      <Field name="tel" type="text" placeholder="Телефон*" :class="{ 'has-error': errorBag.tel }"/>
 
-      <input name="name" type="text" placeholder="Имя*"  v-model="formState.name" :class="{ 'has-error': isSubmitted && validate.name.$invalid }"/>
-      <input name="email" type="email" placeholder="E-Mail*" v-model="formState.email" :class="{ 'has-error': isSubmitted && validate.email.$invalid }"/>
-      <input name="tel" type="text" placeholder="Телефон*" v-model="formState.tel" :class="{ 'has-error': isSubmitted && validate.tel.$invalid }"/>
-
-
-
-
-      <input name="description" type="text" placeholder="Описание проекта*" v-model="formState.description" :class="{ 'has-error': isSubmitted && validate.description.$invalid }"/>
-
-      <p v-for="error of validate.$errors" :key="error.$uid">
-        {{ error.$message }}
-      </p>
-
-          <label class="wrapper-input">
-            <input class="input__file" type="file" placeholder="приложить файлы (до трех файлов)"/>
-            <span>Приложить Файлы (До Трех Файлов)</span>
-            <span class="add-file__icon"><img src="./icons/addFile.svg" alt="выберите файл"></span>
-          </label>
+      <Field name="description" type="text" placeholder="Описание проекта*" :class="{ 'has-error': errorBag.description }" :rules="required"/>
+      <label class="wrapper-input" :class="{ 'has-error': errorBag.file }">
+        <Field name="file" v-slot="{ handleChange, handleBlur }" :rules="{fileValidation: true, size: true, image: true}">
+          <input type="file" @change="handleChange" @blur="handleBlur" class="input__file" placeholder="приложить файлы (до трех файлов)" multiple ref="fileInput"/>
+        </Field>
+        <ErrorMessage name="file"/>
+        <span v-if="!errorBag.file && !fileCount">Приложить Файлы (До Трех Файлов)</span>
+        <span v-if="!errorBag.file && fileCount"> Файлов загружено: {{ fileCount }}</span>
+        <span class="add-file__icon"><img src="./icons/addFile.svg" alt="выберите файл"></span>
+      </label>
       <div>Отправляя эту форму, я принимаю <a href="">политика конфиденциальности</a> этого сайта.</div>
 
-      <button class="btn-rotate" disabled type="submit">отправить</button>
-    </form>
+      <button :disabled="!meta.valid" class="btn-rotate" type="submit">отправить</button>
+        </Form>
 </div>
 
 </template>
@@ -168,7 +171,7 @@ a{
   border: 0;
   color:#fff;
   margin: 0;
-  &.btn-rotate_noactive{
+  &:disabled{
     background: grey;
   }
 }
