@@ -2,9 +2,11 @@
 import { Field, Form, defineRule, ErrorMessage } from 'vee-validate'
 import { size, image } from '@vee-validate/rules'
 import { ref } from 'vue'
-import { MaskInput } from 'vue-3-mask'
+import { vMaska as mask} from "maska/vue"
 
 const emit = defineEmits(['close-modal'])
+
+const vMask = mask;
 
 function closeModal() {
   emit('close-modal')
@@ -109,9 +111,9 @@ function phoneIsValid(value: unknown) {
         :rules="validateEmail"
       />
       <Field name="tel" v-slot="{ field }" :rules="phoneIsValid">
-        <MaskInput
+        <input
           v-bind="field"
-          mask="+7 ### ### ## ##"
+          v-mask="'+7 ### ### ## ##'"
           placeholder="Телефон*"
           :masked="false"
           :class="{ 'has-error': errorBag.tel }"
