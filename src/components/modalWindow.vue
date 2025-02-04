@@ -2,6 +2,7 @@
 import { Field, Form, defineRule, ErrorMessage} from 'vee-validate';
 import { size, image } from '@vee-validate/rules';
 import { ref } from 'vue';
+import { MaskInput } from "vue-mask-next";
 
 const emit = defineEmits(['close-modal']);
 
@@ -65,6 +66,8 @@ function onSubmit(value: unknown) {
   console.log(value);
 }
 
+const mask = ref('');
+
 </script>
 
 <template>
@@ -79,7 +82,11 @@ function onSubmit(value: unknown) {
       <div class="descr-form">Успех начинается с правильных решений. Оставьте здесь свои контакты, и мы свяжемся с вами, чтобы предложить оптимальную технологию по увеличению процента извлекаемости полезного в конечный продукт на вашем предприятии.</div>
       <Field name="name" type="text" placeholder="Имя*" :class="{ 'has-error': errorBag.name }" :rules="required"/>
       <Field name="email" type="email" placeholder="E-Mail*" :class="{ 'has-error': errorBag.email }" :rules="validateEmail"/>
-      <Field name="tel" type="text" placeholder="Телефон*" :class="{ 'has-error': errorBag.tel }"/>
+      <!-- <Field name="tel" type="text" placeholder="Телефон*" :class="{ 'has-error': errorBag.tel }">
+
+      </Field> -->
+
+      <MaskInput  mask="+7 ### ### ## ##" placeholder="Телефон*" />
 
       <Field name="description" type="text" placeholder="Описание проекта*" :class="{ 'has-error': errorBag.description }" :rules="required"/>
       <label class="wrapper-input" :class="{ 'has-error': errorBag.file }">
