@@ -2,7 +2,7 @@
 import { Field, Form, defineRule, ErrorMessage} from 'vee-validate';
 import { size, image } from '@vee-validate/rules';
 import { ref } from 'vue';
-import { MaskInput } from "vue-mask-next";
+import { MaskInput } from 'vue-3-mask';
 
 const emit = defineEmits(['close-modal']);
 
@@ -63,10 +63,18 @@ function fileValidation(input: unknown) {
     }
 
 function onSubmit(value: unknown) {
-  console.log(value);
+  alert(' форма отправлена: ' + JSON.stringify(value));
 }
 
-const mask = ref('');
+function phoneIsValid(value: unknown) {
+  if (!value) {
+    return false;
+  }
+  if (/\+7 \d\d\d \d\d\d \d\d/.test(value as string)) {
+    return true;
+  }
+  return false;
+}
 
 </script>
 
@@ -82,11 +90,9 @@ const mask = ref('');
       <div class="descr-form">Успех начинается с правильных решений. Оставьте здесь свои контакты, и мы свяжемся с вами, чтобы предложить оптимальную технологию по увеличению процента извлекаемости полезного в конечный продукт на вашем предприятии.</div>
       <Field name="name" type="text" placeholder="Имя*" :class="{ 'has-error': errorBag.name }" :rules="required"/>
       <Field name="email" type="email" placeholder="E-Mail*" :class="{ 'has-error': errorBag.email }" :rules="validateEmail"/>
-      <!-- <Field name="tel" type="text" placeholder="Телефон*" :class="{ 'has-error': errorBag.tel }">
-
-      </Field> -->
-
-      <MaskInput  mask="+7 ### ### ## ##" placeholder="Телефон*" />
+      <Field name="tel" v-slot="{field}" :rules="phoneIsValid">
+        <MaskInput v-bind="field" mask="+7 ### ### ## ##" placeholder="Телефон*" :masked="false" :class="{ 'has-error': errorBag.tel }" />
+      </Field>
 
       <Field name="description" type="text" placeholder="Описание проекта*" :class="{ 'has-error': errorBag.description }" :rules="required"/>
       <label class="wrapper-input" :class="{ 'has-error': errorBag.file }">
@@ -209,5 +215,3 @@ a{
   }
 }
 </style>
-
-
