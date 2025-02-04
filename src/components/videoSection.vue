@@ -11,7 +11,7 @@ function onClick() {
 <template>
   <section class="video-block">
     <video autoplay muted loop>
-      <source src="./video/video.mp4" />
+      <source src="https://mind-bureau.website.yandexcloud.net/assets/video.mp4" playsinline />
       Your browser does not support the video tag.
     </video>
     <div class="btn-contact btn" @click="onClick">
