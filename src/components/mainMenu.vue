@@ -7,57 +7,52 @@ function openPhoneMenu() {
 }
 
 interface MenuItem {
-  title: string,
+  title: string
   hasSubmenu: boolean
 }
-
 
 const menu: MenuItem[] = [
   {
     title: 'Товары',
-    hasSubmenu: true
+    hasSubmenu: true,
   },
   {
     title: 'Услуги',
-    hasSubmenu: false
+    hasSubmenu: false,
   },
   {
     title: 'Компания',
-    hasSubmenu: false
-  }
-
+    hasSubmenu: false,
+  },
 ]
 interface SubMenuItem {
-  title: string,
+  title: string
 }
-const subMenu: SubMenuItem[]=[
+const subMenu: SubMenuItem[] = [
   {
-    title:'Флотомашины и чаны'
+    title: 'Флотомашины и чаны',
   },
   {
-    title:'автоматизация'
+    title: 'автоматизация',
   },
   {
-    title:'sn'
-  }
-
+    title: 'sn',
+  },
 ]
 
-
-const currentMenuItem = ref(menu[0]);
+const currentMenuItem = ref(menu[0])
 const isHiddenSubMenu = ref(true)
 
 function onMenuItemClick(item: MenuItem) {
-  currentMenuItem.value = item;
+  currentMenuItem.value = item
   if (item.hasSubmenu) {
-    isHiddenSubMenu.value = !isHiddenSubMenu.value;
+    isHiddenSubMenu.value = !isHiddenSubMenu.value
   }
 }
-const currentSubMenu = ref(subMenu[0]);
-function onSubMenuClick(item:SubMenuItem){
-  currentSubMenu.value = item;
+const currentSubMenu = ref(subMenu[0])
+function onSubMenuClick(item: SubMenuItem) {
+  currentSubMenu.value = item
 }
-
 </script>
 <template>
   <header>
@@ -66,21 +61,31 @@ function onSubMenuClick(item:SubMenuItem){
         <div class="container-main-menu">
           <div class="background"></div>
           <ul class="top-menu" :class="{ 'top-menu_hidden': isHidden }">
-            <li class="top-menu__item"
+            <li
+              class="top-menu__item"
               v-for="item of menu"
               :key="item.title"
               @click="onMenuItemClick(item)"
-              :class="{'top-menu__item_active': currentMenuItem.title === item.title}"
-            ><a href="#">{{item.title}}</a>
-            <ul v-if="item.hasSubmenu" class="top-menu__submenu" :class="{ 'sub-menu_hidden': isHiddenSubMenu }" @click.stop>
-                <li class="top-menu__submenu__item"
-                v-for="item of subMenu"
-                :key="item.title"
-                @click="onSubMenuClick(item)"
-                :class="{'sub-menu-decktop__item_active':currentSubMenu.title===item.title}"
-                >{{item.title}}</li>
+              :class="{ 'top-menu__item_active': currentMenuItem.title === item.title }"
+            >
+              <a href="#">{{ item.title }}</a>
+              <ul
+                v-if="item.hasSubmenu"
+                class="top-menu__submenu"
+                :class="{ 'sub-menu_hidden': isHiddenSubMenu }"
+                @click.stop
+              >
+                <li
+                  class="top-menu__submenu__item"
+                  v-for="item of subMenu"
+                  :key="item.title"
+                  @click="onSubMenuClick(item)"
+                  :class="{ 'sub-menu-decktop__item_active': currentSubMenu.title === item.title }"
+                >
+                  {{ item.title }}
+                </li>
               </ul>
-          </li>
+            </li>
           </ul>
           <div class="container container_phone">
             <div class="btn-order"><a href="#">Оставить заявку</a></div>
@@ -93,12 +98,15 @@ function onSubMenuClick(item:SubMenuItem){
       </nav>
       <nav>
         <ul class="sub-menu-decktop">
-          <li class="sub-menu-decktop__item"
-          v-for="item of subMenu"
-          :key="item.title"
-          @click="onSubMenuClick(item)"
-          :class="{'sub-menu-decktop__item_active':currentSubMenu.title===item.title}"
-          ><a href="#">{{item.title}}</a></li>
+          <li
+            class="sub-menu-decktop__item"
+            v-for="item of subMenu"
+            :key="item.title"
+            @click="onSubMenuClick(item)"
+            :class="{ 'sub-menu-decktop__item_active': currentSubMenu.title === item.title }"
+          >
+            <a href="#">{{ item.title }}</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -110,7 +118,7 @@ function onSubMenuClick(item:SubMenuItem){
   @media screen and (min-width: 1024px) {
     padding: 0 30px;
   }
-  @media screen and (min-width: 1700px){
+  @media screen and (min-width: 1700px) {
     padding: 0 36px;
   }
 }
@@ -135,7 +143,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  font-family:"PF Din Text Cond Pro";
+  font-family: 'PF Din Text Cond Pro';
 }
 
 .top-menu {
@@ -343,9 +351,9 @@ nav {
     z-index: -1;
   }
 }
-.sub-menu-decktop__item_active{
+.sub-menu-decktop__item_active {
   background: #b21f24ed;
-  color:#fff;
+  color: #fff;
   padding-left: 0;
   margin-left: 0;
 }

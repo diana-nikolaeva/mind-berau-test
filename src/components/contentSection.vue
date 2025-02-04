@@ -46,15 +46,15 @@ const props = defineProps<{
     @media screen and (min-width: 1024px) {
       flex-direction: row-reverse;
       margin-top: 40px;
-      .img-container{
+      .img-container {
         margin-left: 20px;
         margin-right: 0;
       }
     }
   }
 }
-h3{
-  color:#311311;
+h3 {
+  color: #311311;
   text-transform: uppercase;
   font-size: 20px;
   letter-spacing: 0.8px;
@@ -67,7 +67,7 @@ h3{
 }
 .descr-img {
   flex-basis: 40%;
-  color:#7C6E6B;
+  color: #7c6e6b;
   margin-bottom: 20px;
 }
 .img-container {
@@ -78,7 +78,7 @@ h3{
     width: 100%;
     display: block;
   }
-  @media screen and (min-width:1024px){
+  @media screen and (min-width: 1024px) {
     margin-right: 20px;
   }
 }
@@ -86,9 +86,8 @@ h3{
   position: absolute;
   bottom: 30px;
   right: 0;
-  a{
+  a {
     text-transform: uppercase;
-
   }
 }
 </style>

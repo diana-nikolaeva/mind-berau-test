@@ -1,7 +1,5 @@
 <script setup lang="ts">
-
 // import homePageContent from './components/homePageContent.vue';
-
 </script>
 
 <template>
@@ -10,26 +8,25 @@
 </template>
 
 <style>
-
 @font-face {
-    font-family: 'PF Din Text Cond Pro';
-    font-style: normal;
-    font-weight: normal;
-    src: url('./assets/fonts/PFDinTextCondPro-Regular.woff');
-    }
-
-@font-face {
-  font-family: "PF Din Text Comp Pro";
-  src: url("./assets/fonts/pfdintextcomppro-regular.ttf");
+  font-family: 'PF Din Text Cond Pro';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/PFDinTextCondPro-Regular.woff');
 }
 
-body{
-  font-family: "PF Din Text Comp Pro";
+@font-face {
+  font-family: 'PF Din Text Comp Pro';
+  src: url('./assets/fonts/pfdintextcomppro-regular.ttf');
 }
-a{
+
+body {
+  font-family: 'PF Din Text Comp Pro';
+}
+a {
   text-decoration: none;
 }
-.btn{
+.btn {
   background: url('./components/icons/bcgr-red.svg') no-repeat;
   background-size: cover;
   width: 183px;
@@ -39,54 +36,54 @@ a{
   align-items: center;
   justify-content: center;
   box-sizing: content-box;
-  font-family:"PF Din Text Cond Pro";
-  @media screen and (min-width: 1024px){
+  font-family: 'PF Din Text Cond Pro';
+  @media screen and (min-width: 1024px) {
     height: 50px;
     width: 220px;
   }
 
-    a{
-      text-decoration: none;
-      color:#fff;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.48px;
-      @media screen and (min-width: 1700px){
-        font-size: 16px;
-        etter-spacing: 0.637px;
-      }
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.48px;
+    @media screen and (min-width: 1700px) {
+      font-size: 16px;
+      etter-spacing: 0.637px;
     }
-    span{
-      margin-left: 14px;
-    }
+  }
+  span {
+    margin-left: 14px;
+  }
 }
-.btn-rotate{
+.btn-rotate {
   background: url('./components/icons/bcgr-red-rotate.svg') no-repeat;
   cursor: pointer;
   width: fit-content;
   margin-left: 20px;
   padding: 10px 40px;
   box-sizing: border-box;
-  font-family:"PF Din Text Cond Pro";
+  font-family: 'PF Din Text Cond Pro';
   background-size: contain;
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1024px) {
     margin-left: 60px;
   }
 
-  a{
-  text-decoration: none;
-    color:#fff;
+  a {
+    text-decoration: none;
+    color: #fff;
     font-size: 12px;
     text-transform: uppercase;
     display: block;
-    @media screen and (min-width: 1700px){
+    @media screen and (min-width: 1700px) {
       font-size: 14px;
       letter-spacing: 0.48px;
     }
   }
-  span{
-  margin-left: 10px;
-  display: inline-block;
-}
+  span {
+    margin-left: 10px;
+    display: inline-block;
+  }
 }
 </style>

@@ -22,10 +22,10 @@
 .tall-banner {
   position: relative;
   margin-bottom: 80px;
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1024px) {
     margin: 0 30px 100px 30px;
   }
-  @media screen and (min-width: 1700px){
+  @media screen and (min-width: 1700px) {
     margin: 0 36px 130px 36px;
   }
 }
@@ -41,7 +41,7 @@
     min-height: 860px;
   }
 }
-h2{
+h2 {
   font-size: 40px;
   color: #fff;
   padding: 60px 0 23px 12px;
@@ -52,33 +52,32 @@ h2{
   }
   @media screen and (min-width: 1700px) {
     font-size: 80px;
-    padding:  67px 0px 40px 69px;
+    padding: 67px 0px 40px 69px;
   }
 }
-.descr{
+.descr {
   color: #fff;
   font-size: 20px;
   margin-left: 12px;
-  color:#7C6E6B;
+  color: #7c6e6b;
   @media screen and (min-width: 1024px) {
     font-size: 16px;
     margin-left: 40px;
     width: 40%;
-    line-height: 126.183%
+    line-height: 126.183%;
   }
   @media screen and (min-width: 1700px) {
     font-size: 28px;
     margin-left: 67px;
   }
 }
-.btn{
+.btn {
   position: absolute;
   bottom: -1px;
   right: -1px;
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1024px) {
     border-bottom: 30px solid #fff;
     border-left: 8px solid transparent;
   }
-
 }
 </style>
